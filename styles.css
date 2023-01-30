@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Sofia Sans', sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 20vh 70vh 5vh;
+}
+
+
+.header{
+    font-size: 70px;
+    grid-row:1/2 ;
+    justify-self: center;
+    padding-top: 5vh;
+}
+
+.books{
+    grid-row: 2/3;
+    border: solid 5px black;
+    margin: 0 15px 0 15px;
+    padding: 15px;
+    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.5);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 150px));
+    gap: 15px;
+    grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
+    justify-content: start;
+}
+
+.book{
+    margin-top: 10px;
+    border: 2px black solid;
+    height: 150px;
+    width: 150px;
+    /* padding-top: 30px; */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.title{
+    margin-top: 30px;
+}
+.book:hover{
+    box-shadow: 4px 4px 4px 2px rgba(59, 129, 199,0.5);
+}
+
+
+/* From https://getcssscan.com/css-buttons-examples */
+.haveRead button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+
+  color: #fff;
+  background: rgb(59, 129, 199);;
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.haveRead button:hover {
+    box-shadow: 0px 0.5px 1.5px rgba(59, 199, 87, 0.5), inset 0px 0.8px 0px -0.25px rgba(59, 199, 87, 0.5);
+    background-color: rgb(59, 199, 87);
+  
+}
+
+
+.newBookButton{
+    border: 2px rgb(59, 129, 199) solid;
+    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newBookButton svg{
+    fill: rgb(59, 129, 199);
+}
+
+
+.newBookButton:hover{
+    border: 2px rgb(59, 199, 87) solid;
+    box-shadow: 4px 4px 4px 2px rgba(59, 199, 87, 0.5);
+}
+
+.newBookButton:hover > svg *,
+.newBookButton:hover{
+    fill:rgb(59, 199, 87)
+
+}
+
+
+.delete{
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: 65px;
+    bottom: 138px;
+   
+    
+}
+
+.delete svg{
+    visibility: hidden;
+}
+
+.delete:hover svg{
+    fill: red;
+}
+
+
+.book:hover svg{
+    visibility: visible;
+}
+
+
+
+
+
+
+.footer{
+    padding-bottom: 5px;
+    justify-self: center;
+    align-self: flex-end;
+    grid-row: 3/4;
+}
+
