@@ -5,7 +5,7 @@ let header = document.querySelector('.header');
 let booksDiv = document.querySelector('.books');
 let newBookButton = document.querySelector('.newBookButton');
 let footer = document.querySelector('.footer');
-
+let modal = document.querySelector('.modal');
 
 
 // Create Array of Books to cycle through
@@ -118,8 +118,11 @@ for(let i = 0; i < myLibrary.length; i++)
 
     for(let i = 0; i <readButton.length; i++){
         readButton[i].addEventListener('click', function(){
+
+            // If book is already set to read
             if (readButton[i].classList.contains('haveRead'))
             {
+                // Changes from Read to Not Read
                 readButton[i].classList.remove('haveRead')
                 readButton[i].classList.add('haveNotRead')
                 readButton[i].textContent = 'Not Read'
@@ -127,6 +130,7 @@ for(let i = 0; i < myLibrary.length; i++)
                 
             }
             else{
+                // Changes from Not Read to Read
                 readButton[i].classList.remove('haveNotRead')
                 readButton[i].classList.add('haveRead')
                 readButton[i].textContent = 'Read'
@@ -136,6 +140,8 @@ for(let i = 0; i < myLibrary.length; i++)
         })
     }
 
+
+    // Get the delete button to work
     
 let deleteBTN = document.querySelectorAll('.delete')
 
@@ -145,13 +151,25 @@ for(let i = 0; i < deleteBTN.length ; i++ )
 {
     deleteBTN[i].addEventListener('click' , function(){
 
+        // Removes from the array
         myLibrary.splice(deleteBTN[i].getAttribute('data-index'))
+
+        // Removes element of the webpage
         books[deleteBTN[i].getAttribute('data-index')].remove()
-        console.log(myLibrary)
+
     })
 }
 
 
+
+
+// Add New Book
+
+newBookButton.addEventListener('click' , function(){
+
+modal.showModal()
+
+})
 
 
 

@@ -1,9 +1,14 @@
-*{
+ /* If I don't include this :not(.modal) - the modal does not center in the screen */
+ 
+ *:not(.modal){
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Sofia Sans', sans-serif;
-}
+} 
+
+
+
 
 .container{
     display: grid;
@@ -39,7 +44,6 @@
     width: 150px;
     /* padding-top: 30px; */
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,3 +174,83 @@
     grid-row: 3/4;
 }
 
+
+h1{
+    text-align: center;
+}
+
+
+.newBookForm{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-right: 100px;
+  
+    text-align: center;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.newBookForm input{
+    text-align: center;
+    padding: 10px;
+
+}
+.haveReadCheckbox{
+    margin-top: 10px;
+}
+
+.addToLibrary{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+  
+    color: #fff;
+    background: rgb(59, 129, 199);;
+     background-origin: border-box;
+    box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+
+.addToLibrary:hover{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+  
+    color: #fff;
+    background: rgb(53, 122, 33);;
+     background-origin: border-box;
+    box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+
+.close {
+    height: 25px;
+    width: 25px;
+    position: relative;
+    left: 172px;
+    bottom: 184px;
+   
+    
+}
+
+.close:hover svg{
+  fill: red;
+}
