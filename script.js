@@ -26,9 +26,10 @@ function addBookToLibrary(book){
 }
 
 
-let LOTR = new Book('Lord of The Rings', 'JRR Tolkein', '1050', true)
-
+let LOTR = new Book('Lord of The Rings', 'JRR Tolkein', '1050', true, )
+let Psych = new Book('The Psychology of Money' , 'Morgan Housell' , '300' , false)
 myLibrary.push(LOTR)
+myLibrary.push(Psych)
 
 
 
@@ -36,6 +37,9 @@ myLibrary.push(LOTR)
 
 for(let i = 0; i < myLibrary.length; i++)
     {
+
+        //  Create the book element will all the right details
+
         let book = document.createElement('div')
         book.classList.add('book')
 
@@ -57,14 +61,29 @@ for(let i = 0; i < myLibrary.length; i++)
         let pagesText = document.createTextNode(`${myLibrary[i].pages} pages`)
         pages.appendChild(pagesText)
 
-         let haveRead = document.createElement('span')
-         book.appendChild(haveRead)
-         haveRead.classList.add('haveRead')
-         let haveReadBTN = document.createElement('button')
-         haveReadBTN.classList.add('haveRead')
-         let haveReadBTNText = document.createTextNode('Read')
-         haveReadBTN.appendChild(haveReadBTNText)
-         haveRead.appendChild(haveReadBTN)
+       
+        
+        let haveRead = document.createElement('span')
+        book.appendChild(haveRead)
+        //haveRead.classList.add('haveRead')
+
+        let haveReadBTN = document.createElement('button')
+        haveReadBTN.setAttribute('data-index', i)
+        haveReadBTN.classList.add('readButton')
+
+        if(myLibrary[i].read == true)
+        {
+            haveReadBTN.classList.add('haveRead')
+            let haveReadBTNText = document.createTextNode('Read')
+            haveReadBTN.appendChild(haveReadBTNText)
+            haveRead.appendChild(haveReadBTN)
+        }else{
+            haveReadBTN.classList.add('haveNotRead')
+            let haveReadBTNText = document.createTextNode('Not Read')
+            haveReadBTN.appendChild(haveReadBTNText)
+            haveRead.appendChild(haveReadBTN)
+        }
+
 
          let deleteBTN = document.createElement('span')
          
@@ -72,7 +91,6 @@ for(let i = 0; i < myLibrary.length; i++)
         
          let deleteSVGelement = document.createElementNS('http://www.w3.org/2000/svg','svg')
          deleteBTN.appendChild(deleteSVGelement)
-        // deleteSVGelement.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
          deleteSVGelement.setAttributeNS(null, 'viewBox', '0 0 50 50' )
          
          let deleteSVG = document.createElementNS('http://www.w3.org/2000/svg', 'path')
@@ -83,8 +101,37 @@ for(let i = 0; i < myLibrary.length; i++)
          book.appendChild(deleteBTN)
         
 
+        // Add this newly created element to the webpage
 
-
-
-        booksDiv.appendChild(book)
+        booksDiv.insertBefore(book, newBookButton)
     }
+
+
+
+
+    // Read and unread buttons
+
+    let readButton = document.querySelectorAll('.readButton')
+
+
+    for(let i = 0; i <readButton.length; i++){
+        readButton[i].addEventListener('click', function(){
+            if (readButton[i].classList.contains('haveRead'))
+            {
+                readButton[i].classList.remove('haveRead')
+                readButton[i].classList.add('haveNotRead')
+                readButton[i].textContent = 'Not Read'
+                myLibrary[readButton[i].getAttribute('data-index')].read = false
+                
+            }
+            else{
+                readButton[i].classList.remove('haveNotRead')
+                readButton[i].classList.add('haveRead')
+                readButton[i].textContent = 'Read'
+                myLibrary[readButton[i].getAttribute('data-index')].read = true
+            }
+
+        })
+    }
+
+    
