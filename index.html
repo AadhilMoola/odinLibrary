@@ -62,17 +62,17 @@
 <form action="" class="newBookForm" method="dialog" >
 
 <label for="title">Book Name</label>
-<input type="text" name="title">
+<input type="text" name="title" id="title">
 
 <label for="author">Author</label>
-<input type="text" name="author">
+<input type="text" name="author" id="author">
 
 <label for="pages">Pages</label>
-<input type="number" name="pages">
+<input type="number" name="pages" id="pages" min="0">
 
 <div class="haveReadCheckbox">
 <label for="haveRead">Have you read it?</label>
-<input type="checkbox" name="haveRead">
+<input type="checkbox" name="haveRead" id="haveRead">
 </div>
 
 <button class="addToLibrary">Add to Library</button>
