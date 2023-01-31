@@ -42,6 +42,7 @@ for(let i = 0; i < myLibrary.length; i++)
 
         let book = document.createElement('div')
         book.classList.add('book')
+        book.setAttribute('data-index', i)
 
         let title = document.createElement('span')
         book.appendChild(title)
@@ -88,6 +89,7 @@ for(let i = 0; i < myLibrary.length; i++)
          let deleteBTN = document.createElement('span')
          
          deleteBTN.classList.add('delete')
+         deleteBTN.setAttribute('data-index', i)
         
          let deleteSVGelement = document.createElementNS('http://www.w3.org/2000/svg','svg')
          deleteBTN.appendChild(deleteSVGelement)
@@ -135,3 +137,27 @@ for(let i = 0; i < myLibrary.length; i++)
     }
 
     
+let deleteBTN = document.querySelectorAll('.delete')
+
+let books = document.querySelectorAll('.book')
+
+for(let i = 0; i < deleteBTN.length ; i++ )
+{
+    deleteBTN[i].addEventListener('click' , function(){
+
+        myLibrary.splice(deleteBTN[i].getAttribute('data-index'))
+        books[deleteBTN[i].getAttribute('data-index')].remove()
+        console.log(myLibrary)
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
